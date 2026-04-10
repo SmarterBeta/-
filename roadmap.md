@@ -3,54 +3,56 @@
 _Last updated: 2026-04-10 by Athena_
 
 ## Current State
-- M1.1 baseline scaffold is complete and verified:
-  - `docs/milestones/M1_scope_lock.md`
-  - `README.md` setup/run/validate commands
-  - `baseline.py`
-  - `tests/test_baseline.py`
-  - `scripts/validate.sh`
-  - `.github/workflows/validate.yml`
-- Verification passed in Apollo phase and PR #2 was merged to `main`.
-- Canonical validation path is deterministic and bounded: `timeout 40 ./scripts/validate.sh`.
-- Human requirements are still missing; GitHub issue #1 remains open with no response.
+- Baseline scaffold (M1.1) remains complete and verified on `main`.
+- Candidate first-capability artifacts are now merged on `main`:
+  - `docs/milestones/M1_candidate_capabilities.md`
+  - `docs/milestones/M1_candidate_acceptance.md`
+- Human requirements issue (`HUMAN: Provide initial product requirements and first user capability`, GitHub issue #1) is still open with no reply.
+- To maintain momentum with minimal rework risk, next execution will use the smallest reversible candidate (Option 1 deterministic status CLI) under explicit provisional scope.
 
 ## Milestones
 
-### M1 — Scope lock and implementation readiness (target: 4 cycles, used: 4)
-**Goal:** Remove ambiguity before feature coding and establish a verifiable baseline.
+### M1 — Scope lock and first capability bootstrap (target: 6 cycles, used: 5)
+**Goal:** Move from placeholder baseline to one objectively testable user-visible capability.
 
-**Status:** In progress (M1.1 complete, M1.2 blocked by human input)
+**Status:** In progress
 
-#### M1.1 — Scope intake + repo bootstrap baseline
+#### M1.1 — Scope intake + deterministic baseline scaffold
+**Status:** Completed and verified
+
+**Completed outcomes:**
+- `docs/milestones/M1_scope_lock.md` with provisional assumptions tied to GitHub issue #1.
+- Minimal Python baseline + deterministic validation command.
+- Happy-path + negative-path tests.
+- CI workflow running the same validation path.
+
+#### M1.2 — Candidate scope and acceptance pre-drafting
 **Status:** Completed
 
 **Completed outcomes:**
-- Scope-lock doc template and assumptions tied to HUMAN issue #1.
-- Minimal deterministic Python scaffold.
-- Canonical validation command with bounded timeout.
-- Happy-path and negative-path automated tests.
-- CI workflow invoking the same validation path.
+- Three concrete capability options with out-of-scope and demo paths.
+- Apollo-verifiable acceptance matrix with bounded verification commands and fail conditions.
 
-#### M1.2 — Requirement finalization and first thin-slice handoff
-**Goal:** Convert scope lock into one approved first capability and hand off a fully testable implementation milestone.
+#### M1.3 — Implement provisional Option 1 (deterministic status CLI)
+**Status:** Ready for implementation handoff
 
-**Status:** Blocked by human response on GitHub issue #1.
+**Scope (fixed):**
+- Add CLI contract `python3 baseline.py --name <value>` with exact output/error behavior.
+- Update scope-lock selection line and README runbook examples.
+- Ensure tests cover exact happy + negative CLI behavior.
+- Preserve canonical deterministic validation + CI parity.
 
-**Next preparatory work while blocked:**
-- Produce 2–3 concrete candidate first-capability options (problem/user/capability/out-of-scope/demo).
-- Pre-draft Apollo-verifiable acceptance checks for each option so implementation can begin immediately once a human selects one.
+### M2 — Requirement reconciliation after human response (target: 3 cycles)
+**Goal:** Compare implemented provisional capability against human-provided requirements and adjust with minimal churn.
 
-### M2 — Build first functional increment (target: 4 cycles)
-**Goal:** Implement exactly one user-visible capability from approved scope with happy/negative-path tests.
-
-**Status:** Blocked by M1.2
+**Status:** Pending M1.3 and/or human response
 
 ### M3 — Verification hardening and completion (target: 3 cycles)
-**Goal:** Ensure implementation is stable, objectively verifiable, and documented for handoff.
+**Goal:** Ensure final selected direction is stable, fully verifiable, and handoff-ready.
 
-**Status:** Blocked by M2
+**Status:** Pending M2
 
 ## Lessons Learned
-- Front-loading deterministic validation and CI parity made M1.1 verification fast and objective.
-- Scope ambiguity remains the dominant risk; human requirement latency is currently the critical path.
-- Maintaining pre-written acceptance checks for candidate scope options can reduce idle time and speed execution after human input.
+- Keeping deterministic validation and CI parity from day one makes fast verification possible.
+- Pre-writing acceptance checks before coding reduces ambiguity and implementation thrash.
+- When human input is delayed, choosing a smallest reversible thin slice is better than idle waiting.
