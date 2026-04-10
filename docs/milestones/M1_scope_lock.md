@@ -2,6 +2,8 @@
 
 **Decision Status:** Provisional and blocked pending human clarification from GitHub HUMAN issue #1.
 
+Selected Option: Option 1
+
 **Assumptions tied to GitHub HUMAN issue #1:**
 - Until issue #1 is answered, the first capability is limited to a deterministic local scaffold and validation path only.
 - No external services, APIs, or network calls are required for M1.1 required validation.
