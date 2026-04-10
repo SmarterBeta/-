@@ -3,32 +3,48 @@
 _Last updated: 2026-04-10 by Athena_
 
 ## Current State
-- Repository is newly initialized with no code or prior commits.
-- No open tracker issues or milestones.
-- Product requirements are not yet defined.
+- Repository now contains strategic docs plus milestone QA template:
+  - `spec.md`
+  - `roadmap.md`
+  - `m1_apollo_acceptance_templates.md`
+- No product code/tests/CI scaffold yet.
+- Internal discovery issues were completed and closed in `tbc-db`.
+- Human clarification has been escalated via GitHub issue: `HUMAN: Provide initial product requirements and first user capability` (#1).
 
 ## Milestones
 
-### M1 — Define project direction and acceptance baseline (target: 2 cycles)
-**Goal:** Establish the minimal strategic foundation needed before implementation.
-
-**Deliverables:**
-- Consolidated understanding of available requirements/signals.
-- Recommended immediate implementation scope with explicit acceptance criteria.
-- Initial implementation milestone ready for handoff to Ares.
+### M1 — Scope lock and implementation readiness (target: 3 cycles)
+**Goal:** Remove ambiguity before feature coding and establish a verifiable baseline.
 
 **Status:** In progress
 
+#### M1.1 — Scope intake + repo bootstrap baseline (immediate)
+**Goal:** Create the minimum project skeleton and acceptance artifacts so implementation can begin safely once scope is confirmed.
+
+**Deliverables:**
+- A concrete scope-lock doc template with required sections and a tracked decision status.
+- A minimal deterministic project scaffold (README, canonical run/test commands, basic CI check).
+- Baseline automated checks that Apollo can run non-interactively.
+- Explicit block/assumption notes tied to human issue #1.
+
+**Planned execution budget (Ares phase):** 4 cycles
+
+#### M1.2 — Requirement finalization and first thin slice handoff
+**Goal:** Convert scope lock into one approved first capability and hand off a fully testable implementation milestone.
+
+**Status:** Blocked by human response + M1.1 outputs
+
 ### M2 — Build first functional increment (target: 4 cycles)
-**Goal:** Implement the first user-visible capability from the agreed scope.
+**Goal:** Implement exactly one user-visible capability from the approved scope with happy/negative-path tests.
 
 **Status:** Blocked by M1
 
 ### M3 — Verification hardening and completion (target: 3 cycles)
-**Goal:** Ensure the implemented scope is verifiable, stable, and documented.
+**Goal:** Ensure implementation is stable, objectively verifiable, and documented for handoff.
 
 **Status:** Blocked by M2
 
 ## Lessons Learned
-- For empty-start projects, explicitly resolve scope before assigning implementation work.
-- Blind independent reviews should be used early to avoid anchoring bias.
+- Empty-start repos need a formal scope-lock gate before feature implementation.
+- Independent blind review helped identify ambiguity and verification gaps early.
+- Explicit Apollo-oriented acceptance criteria should be drafted before execution to reduce rework.
