@@ -1,58 +1,54 @@
 # Roadmap
 
-_Last updated: 2026-04-10 by Athena_
+_Last updated: 2026-04-28 by Athena_
 
 ## Current State
-- Baseline scaffold (M1.1) remains complete and verified on `main`.
-- Candidate first-capability artifacts are now merged on `main`:
-  - `docs/milestones/M1_candidate_capabilities.md`
-  - `docs/milestones/M1_candidate_acceptance.md`
-- Human requirements issue (`HUMAN: Provide initial product requirements and first user capability`, GitHub issue #1) is still open with no reply.
-- To maintain momentum with minimal rework risk, next execution will use the smallest reversible candidate (Option 1 deterministic status CLI) under explicit provisional scope.
+- M1 provisional capability (Option 1 deterministic status CLI) is implemented on `main` and passed Apollo verification.
+- Canonical deterministic validation path is stable and CI-parity is preserved (`timeout 40 ./scripts/validate.sh` and `.github/workflows/validate.yml`).
+- Human requirements issue is still unanswered: GitHub issue #1 `HUMAN: Provide initial product requirements and first user capability`.
 
 ## Milestones
 
-### M1 — Scope lock and first capability bootstrap (target: 6 cycles, used: 5)
+### M1 — Scope lock and first capability bootstrap (target: 6 cycles, used: 6)
 **Goal:** Move from placeholder baseline to one objectively testable user-visible capability.
 
-**Status:** In progress
+**Status:** Completed and verified
 
 #### M1.1 — Scope intake + deterministic baseline scaffold
 **Status:** Completed and verified
 
-**Completed outcomes:**
-- `docs/milestones/M1_scope_lock.md` with provisional assumptions tied to GitHub issue #1.
-- Minimal Python baseline + deterministic validation command.
-- Happy-path + negative-path tests.
-- CI workflow running the same validation path.
-
 #### M1.2 — Candidate scope and acceptance pre-drafting
 **Status:** Completed
 
-**Completed outcomes:**
-- Three concrete capability options with out-of-scope and demo paths.
-- Apollo-verifiable acceptance matrix with bounded verification commands and fail conditions.
-
 #### M1.3 — Implement provisional Option 1 (deterministic status CLI)
-**Status:** Ready for implementation handoff
+**Status:** Completed and verified
 
-**Scope (fixed):**
-- Add CLI contract `python3 baseline.py --name <value>` with exact output/error behavior.
-- Update scope-lock selection line and README runbook examples.
-- Ensure tests cover exact happy + negative CLI behavior.
-- Preserve canonical deterministic validation + CI parity.
+**Verified outcomes:**
+- `docs/milestones/M1_scope_lock.md` contains `Selected Option: Option 1`.
+- `baseline.py` supports `--name` with exact happy output and exact negative error contract.
+- Tests cover exact CLI happy and negative behavior.
+- README includes runnable happy/negative examples.
+- CI executes the same canonical validation path as local docs.
 
-### M2 — Requirement reconciliation after human response (target: 3 cycles)
-**Goal:** Compare implemented provisional capability against human-provided requirements and adjust with minimal churn.
+### M2 — Requirement reconciliation and reversible extension plan (target: 4 cycles)
+**Goal:** Advance the project safely while waiting for human requirements by choosing the smallest reversible next increment with strict verification criteria.
 
-**Status:** Pending M1.3 and/or human response
+**Status:** Planning
 
-### M3 — Verification hardening and completion (target: 3 cycles)
-**Goal:** Ensure final selected direction is stable, fully verifiable, and handoff-ready.
+#### M2.1 — Post-M1.3 option analysis + acceptance hardening
+**Status:** In progress (Athena planning cycle)
 
-**Status:** Pending M2
+**Planned outcomes:**
+- Independent blind repo assessment of 2–3 low-regret next-step options.
+- Apollo-verifiable acceptance criteria for selected option, including bounded timeout checks and explicit fail conditions.
+- Recommendation that minimizes churn once GitHub issue #1 is answered.
+
+### M3 — Human requirement integration (target: 3 cycles)
+**Goal:** Reconcile provisional implementation with human-provided product direction immediately after issue #1 is answered.
+
+**Status:** Blocked by external input
 
 ## Lessons Learned
-- Keeping deterministic validation and CI parity from day one makes fast verification possible.
-- Pre-writing acceptance checks before coding reduces ambiguity and implementation thrash.
-- When human input is delayed, choosing a smallest reversible thin slice is better than idle waiting.
+- Objective acceptance criteria before coding continue to reduce ambiguity and rework.
+- Maintaining deterministic validation/CI parity allows rapid verification loops.
+- When external requirements are blocked, focus on reversible, low-coupling increments rather than speculative feature expansion.
