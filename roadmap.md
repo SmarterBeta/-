@@ -26,7 +26,7 @@ _Last updated: 2026-04-28 by Athena_
 ### M2 — Reversible extension while requirements are pending (target: 4 cycles)
 **Goal:** Add one additional small, deterministic CLI capability that is easy to revise once the human product direction is provided.
 
-**Status:** Ready to execute
+**Status:** Handoff queued in tbc-db issue #25
 
 #### M2.1 — Deterministic local task capture (`tasks.py` add/list)
 **Status:** Planned
