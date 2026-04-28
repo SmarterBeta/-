@@ -1,5 +1,7 @@
 # M1 Scope Lock
 
+Selected Option: Option 1
+
 **Decision Status:** Provisional and blocked pending human clarification from GitHub HUMAN issue #1.
 
 **Assumptions tied to GitHub HUMAN issue #1:**
@@ -22,6 +24,6 @@ Provide a tiny local Python scaffold with a canonical validation command, one ha
 - Any broader architecture beyond the minimal M1.1 baseline.
 
 ## Demo Path
-1. Run `timeout 10 python3 baseline.py`.
+1. Run `timeout 10 python3 baseline.py --name "  Alice  "`.
 2. Run canonical validation: `timeout 40 ./scripts/validate.sh`.
 3. Confirm CI workflow `.github/workflows/validate.yml` invokes `./scripts/validate.sh`.
