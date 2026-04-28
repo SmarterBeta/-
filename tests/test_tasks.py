@@ -54,6 +54,13 @@ class TestTasksCli(unittest.TestCase):
             self.assertEqual(result.stderr, "error: title must be a non-empty string\n")
 
 
+class TestTasksRepositoryDefaults(unittest.TestCase):
+    def test_default_data_file_starts_empty_tasks_array(self) -> None:
+        default_data_file = REPO_ROOT / "data" / "tasks.json"
+        persisted = json.loads(default_data_file.read_text(encoding="utf-8"))
+        self.assertEqual(persisted, {"tasks": []})
+
+
 class TestTasksPersistence(unittest.TestCase):
     def test_persisted_schema_and_deterministic_id_sequence(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
